@@ -1,27 +1,17 @@
 [
     {
-        "title": "910",
+        "title": "Day 1 of class",
         "text": "test",
         "note_id": "c3c0d760-488f-47c2-86fa-f0e6d81682b8"
     },
     {
-        "title": "get better at coding",
+        "title": "Day 2 of class",
         "text": "dude",
         "note_id": "a0da1125-9a67-4ae1-97cb-01a7fb9d5cb5"
     },
     {
-        "title": "test by id",
+        "title": "Day 3 of class",
         "text": "test ",
         "note_id": "77ef70ef-9e46-43b1-beb9-2e4a6e7f3b24"
-    },
-    {
-        "title": "test",
-        "text": "testtt\n",
-        "note_id": "d6861f80-fa77-45e7-84cd-0ca22739991c"
-    },
-    {
-        "title": "111",
-        "text": "222",
-        "note_id": "1c48f34c-4bdd-47e9-83a6-ffd778bf1c9e"
     }
 ]
