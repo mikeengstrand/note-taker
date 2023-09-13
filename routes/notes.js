@@ -11,10 +11,29 @@ notes.get('/', (req, res) => {
   readFromFile('./db/notes.json').then((data) => res.json(JSON.parse(data)));
 });
 
+
+// still not working, double chewcck on this///////////////////
+// GET Route for specific note by ID
+notes.get('/:note_id', (req, res) => {
+  const noteId = req.params.note_id;
+  readFromFile('./db/notes.json')
+    .then((data) => JSON.parse(data))
+    .then((json) => {
+      const result = json.find((note) => note.note_id === noteId);
+      return result
+        ? res.json(result)
+        : res.json('No note with that ID');
+    })
+    .catch((error) => res.status(500).json({ error: 'Internal server error' }));
+});
+// still not working, double chewcck on this///////////////////
+
+
 // GET Route for specific note
-// notes.get('/:note_id', (req, res) => {
+
+// notes.get('/notes', (req, res) => {
 //   const noteId = req.params.note_id;
-//   readFromFile('./db/db.json')
+//   readFromFile('./db/notes.json')
 //     .then((data) => JSON.parse(data))
 //     .then((json) => {
 //       const result = json.filter((note) => note.note_id === noteId);
@@ -23,6 +42,9 @@ notes.get('/', (req, res) => {
 //         : res.json('No note with that ID');
 //     });
 // });
+
+
+
 
 // DELETE Route for a specific note
 notes.delete('/:note_id', (req, res) => {
@@ -45,16 +67,16 @@ notes.delete('/:note_id', (req, res) => {
 notes.post('/', (req, res) => {
   console.log(req.body);
 
-  const { noteTitle, noteText } = req.body;
+  const { title, text } = req.body;
 
   if (req.body) {
     const newNote = {
-      noteTitle,
-      noteText,
+      title,
+      text,
       note_id: uuidv4(),
     };
-    console.log(noteTitle)
-    console.log(noteText)
+    console.log(newNote.noteTitle)
+    console.log(newNote.noteText)
 
     readAndAppend(newNote, './db/notes.json');
     res.json(`New note added successfully`);
